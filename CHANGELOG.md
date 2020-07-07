@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](http://nas/matt/Janda.Dot.Obfuscar/compare/0.1.0...0.2.0) (2020-07-07)
+
+
+### Features
+
+* Add obfuscar config creator ([f54cc24](http://nas/matt/Janda.Dot.Obfuscar/commit/f54cc24908fe64ed57f178d24357d925e5985bd0))
+
 ## 0.1.0 (2020-07-07)
 
 
