@@ -2,7 +2,6 @@
 
   <PropertyGroup Condition=" $(Configuration) == Release ">     
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies> 
-    <MessageHeader>Janda.Dot.Obfuscar -> </MessageHeader>
   </PropertyGroup>
 
   <Target Condition=" $(Configuration)==Release " Name="Obfuscate" AfterTargets="Build" >
@@ -11,15 +10,15 @@
       <ObfuscatedFile>$(ObfuscateDir)\$(TargetFileName)</ObfuscatedFile>
     </PropertyGroup>
 
-    <Message Text="$(MessageHeader)Running &quot;$(Obfuscar)&quot; -s $(ProjectDir)obfuscar.xml" Importance="high" />
+    <Message Text="Janda.Dot.Obfuscar -> Running &quot;$(Obfuscar)&quot; -s $(ProjectDir)obfuscar.xml" Importance="high" />
     <Exec WorkingDirectory="$(OutputPath)" Command="&quot;$(Obfuscar)&quot; -s $(ProjectDir)obfuscar.xml" ContinueOnError="false" />
 
-    <Message Text="$(MessageHeader)Backing up $(TargetPath)" Importance="high" />
+    <Message Text="Janda.Dot.Obfuscar -> Backing up $(TargetPath)" Importance="high" />
     <Move SourceFiles="$(TargetPath)" DestinationFiles="$(TargetPath).bak" />
 
-    <Message Text="$(MessageHeader)Copying $(ObfuscatedFile) to $(OutputPath)" Importance="high" />
+    <Message Text="Janda.Dot.Obfuscar -> Copying $(ObfuscatedFile) to $(OutputPath)" Importance="high" />
     <Copy SourceFiles="$(ObfuscatedFile)" DestinationFolder="$(OutputPath)" />
 
-    <Message Text="$(MessageHeader)$(ProjectName) obfuscation complete." Importance="high" />
+    <Message Text="Janda.Dot.Obfuscar -> $(ProjectName) obfuscation complete." Importance="high" />
   </Target>
 </Project>
