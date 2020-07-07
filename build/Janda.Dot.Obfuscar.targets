@@ -1,12 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <ItemGroup>
-    <PackageReference Include="Obfuscar" Version="2.2.19">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>  
-
   <PropertyGroup Condition=" $(Configuration) == Release ">     
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies> 
     <MessageHeader>Janda.Dot.Obfuscar -> </MessageHeader>

@@ -9,6 +9,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Pack target dot package</description>
     <developmentDependency>true</developmentDependency>
+    <dependencies>
+      <dependency id="Obfuscar" version="2.2.19" />
+    </dependencies>
   </metadata>
   <files>
     <file src="build\*.*" target="build" />
