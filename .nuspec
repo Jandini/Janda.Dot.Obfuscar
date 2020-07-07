@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Janda.Dot.Obfuscar</id>
+    <version>$Version$</version>
+    <title></title>
+    <authors>Matt Janda</authors>
+    <owners>Matt Janda</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Pack target dot package</description>
+    <developmentDependency>true</developmentDependency>
+    <dependencies>
+      <dependency id="Obfuscar" version="2.2.19" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="build\*.*" target="build" />
+  </files>
+</package>

@@ -1,0 +1,24 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup Condition=" $(Configuration) == Release ">     
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies> 
+  </PropertyGroup>
+
+  <Target Condition=" $(Configuration)==Release " Name="Obfuscate" AfterTargets="Build" >
+    <PropertyGroup>
+      <ObfuscateDir>$(OutputPath)obfuscate\$(ProjectName)</ObfuscateDir>
+      <ObfuscatedFile>$(ObfuscateDir)\$(TargetFileName)</ObfuscatedFile>
+    </PropertyGroup>
+
+    <Message Text="Janda.Dot.Obfuscar -> Running &quot;$(Obfuscar)&quot; -s $(ProjectDir)obfuscar.xml" Importance="high" />
+    <Exec WorkingDirectory="$(OutputPath)" Command="&quot;$(Obfuscar)&quot; -s $(ProjectDir)obfuscar.xml" ContinueOnError="false" />
+
+    <Message Text="Janda.Dot.Obfuscar -> Backing up $(TargetPath)" Importance="high" />
+    <Move SourceFiles="$(TargetPath)" DestinationFiles="$(TargetPath).bak" />
+
+    <Message Text="Janda.Dot.Obfuscar -> Copying $(ObfuscatedFile) to $(OutputPath)" Importance="high" />
+    <Copy SourceFiles="$(ObfuscatedFile)" DestinationFolder="$(OutputPath)" />
+
+    <Message Text="Janda.Dot.Obfuscar -> $(ProjectName) obfuscation complete." Importance="high" />
+  </Target>
+</Project>
