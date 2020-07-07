@@ -1,10 +1,36 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <PropertyGroup Condition=" $(Configuration) == Release ">     
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies> 
+  <PropertyGroup Condition=" $(Configuration) == Release ">
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
-  <Target Condition=" $(Configuration)==Release " Name="Obfuscate" AfterTargets="Build" >
+  <Target Name="ObfuscarXml" Condition= " !Exists('$(ProjectDir)obfuscar.xml') ">
+    <ItemGroup>
+      <Line Include="line01">
+        <Text>&lt;Obfuscator&gt;</Text>
+      </Line>
+      <Line Include="line02">
+        <Text>%20%20&lt;Var name="InPath" value="." /&gt;</Text>
+      </Line>
+      <Line Include="line03">
+        <Text>%20%20&lt;Var name="OutPath" value="obfuscate\$(ProjectName)" /&gt;</Text>
+      </Line>
+      <Line Include="line04">
+        <Text>%20%20&lt;Var name="HidePrivateApi" value="true" /&gt;</Text>
+      </Line>
+      <Line Include="line05">
+        <Text>%20%20&lt;Module file="%24(InPath)\$(ProjectName).dll" /&gt;</Text>
+      </Line>
+      <Line Include="line06">
+        <Text>&lt;/Obfuscator&gt;</Text>
+      </Line>
+      <LineText Include="%(Line.Text)" />
+    </ItemGroup>
+    <Message Text="Janda.Dot.Obfuscar -> Obfuscar.xml not found. Creating $(ProjectDir)obfuscar.xml" Importance="high" />
+    <WriteLinesToFile File="$(ProjectDir)obfuscar.xml" Lines="@(LineText)" Overwrite="true" />
+  </Target>
+
+  <Target Condition=" $(Configuration) == Release " Name="Obfuscate" AfterTargets="Build" DependsOnTargets = "ObfuscarXml">
     <PropertyGroup>
       <ObfuscateDir>$(OutputPath)obfuscate\$(ProjectName)</ObfuscateDir>
       <ObfuscatedFile>$(ObfuscateDir)\$(TargetFileName)</ObfuscatedFile>
@@ -21,4 +47,5 @@
 
     <Message Text="Janda.Dot.Obfuscar -> $(ProjectName) obfuscation complete." Importance="high" />
   </Target>
+  
 </Project>
