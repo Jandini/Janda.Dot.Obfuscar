@@ -7,7 +7,7 @@
     <authors>Matt Janda</authors>
     <owners>Matt Janda</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Pack target dot package</description>
+    <description>Obfuscar 2.2.19</description>
     <developmentDependency>true</developmentDependency>
     <dependencies>
       <dependency id="Obfuscar" version="2.2.19" />
