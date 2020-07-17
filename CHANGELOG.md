@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](http://nas/matt/Janda.Dot.Obfuscar/compare/0.2.0...0.3.0) (2020-07-17)
+
+
+### Features
+
+* Add jenkins shared library ([cf4bfc9](http://nas/matt/Janda.Dot.Obfuscar/commit/cf4bfc9a6976aed8f057360ed99d71e480e621ec))
+
 ## [0.2.0](http://nas/matt/Janda.Dot.Obfuscar/compare/0.1.0...0.2.0) (2020-07-07)
 
 
