@@ -13,13 +13,13 @@
         <Text>%20%20&lt;Var name="InPath" value="." /&gt;</Text>
       </Line>
       <Line Include="line03">
-        <Text>%20%20&lt;Var name="OutPath" value="obfuscate\$(ProjectName)" /&gt;</Text>
+        <Text>%20%20&lt;Var name="OutPath" value="obfuscate\$(TargetName)" /&gt;</Text>
       </Line>
       <Line Include="line04">
         <Text>%20%20&lt;Var name="HidePrivateApi" value="true" /&gt;</Text>
       </Line>
       <Line Include="line05">
-        <Text>%20%20&lt;Module file="%24(InPath)\$(ProjectName).dll" /&gt;</Text>
+        <Text>%20%20&lt;Module file="%24(InPath)\$(TargetName).dll" /&gt;</Text>
       </Line>
       <Line Include="line06">
         <Text>&lt;/Obfuscator&gt;</Text>
@@ -32,7 +32,7 @@
 
   <Target Condition=" $(Configuration) == Release " Name="Obfuscate" AfterTargets="Build" DependsOnTargets = "ObfuscarXml">
     <PropertyGroup>
-      <ObfuscateDir>$(OutputPath)obfuscate\$(ProjectName)</ObfuscateDir>
+      <ObfuscateDir>$(OutputPath)obfuscate\$(TargetName)</ObfuscateDir>
       <ObfuscatedFile>$(ObfuscateDir)\$(TargetFileName)</ObfuscatedFile>
     </PropertyGroup>
 
@@ -45,7 +45,7 @@
     <Message Text="Janda.Dot.Obfuscar -> Copying $(ObfuscatedFile) to $(OutputPath)" Importance="high" />
     <Copy SourceFiles="$(ObfuscatedFile)" DestinationFolder="$(OutputPath)" />
 
-    <Message Text="Janda.Dot.Obfuscar -> $(ProjectName) obfuscation complete." Importance="high" />
+    <Message Text="Janda.Dot.Obfuscar -> $(TargetName) obfuscation complete." Importance="high" />
   </Target>
   
 </Project>
